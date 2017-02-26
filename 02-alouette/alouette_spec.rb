@@ -8,7 +8,8 @@ Minitest::Reporters.use!
 describe Alouette do
   describe "lines_for_verse" do
     it "returns an array of strings" do
-      lines = Alouette.lines_for_verse(3)
+      new_instance = Alouette.new
+      lines = new_instance.lines_for_verse(3)
 
       lines.must_be_kind_of Array
 
@@ -18,30 +19,35 @@ describe Alouette do
     end
 
     it "generates the correct line for the first verse" do
-      skip
-      Alouette.lines_for_verse(0).must_equal ['Et la tête!']
+      # skip
+      new_instance = Alouette.new
+      new_instance.lines_for_verse(7).must_equal ['Et la tête!']
     end
 
     it "generates the correct lines for the third verse" do
-      skip
+      # skip
+      new_instance = Alouette.new
+
       expected_lines = [
         "Et les yeux!",
         "Et le bec!",
         "Et la tête!"
       ]
-      Alouette.lines_for_verse(2).must_equal expected_lines
+      new_instance.lines_for_verse(5).must_equal expected_lines
     end
   end
 
   describe "verse" do
     it "returns a string" do
-      skip
-      Alouette.verse(3).must_be_kind_of String
+      # skip
+      new_instance = Alouette.new
+      new_instance.verse(4).must_be_kind_of String
     end
 
     it "first two lines begin with 'Je te plumerai'" do
-      skip
-      lines = Alouette.verse(3).split("\n")
+      # skip
+      new_instance = Alouette.new
+      lines = new_instance.verse(3).split("\n")
 
       # If there aren't at least 2 lines, don't continue
       lines.length.must_be :>, 1, "Not enough lines for this test"
