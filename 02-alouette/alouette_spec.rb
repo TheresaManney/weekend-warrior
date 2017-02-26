@@ -8,8 +8,7 @@ Minitest::Reporters.use!
 describe Alouette do
   describe "lines_for_verse" do
     it "returns an array of strings" do
-      new_instance = Alouette.new
-      lines = new_instance.lines_for_verse(3)
+      lines = Alouette.lines_for_verse(3)
 
       lines.must_be_kind_of Array
 
@@ -19,35 +18,32 @@ describe Alouette do
     end
 
     it "generates the correct line for the first verse" do
-      # skip
-      new_instance = Alouette.new
-      new_instance.lines_for_verse(7).must_equal ['Et la tête!']
+      skip
+      Alouette.lines_for_verse(7).must_equal ['Et la tête!']
     end
 
     it "generates the correct lines for the third verse" do
       # skip
-      new_instance = Alouette.new
 
       expected_lines = [
         "Et les yeux!",
         "Et le bec!",
         "Et la tête!"
       ]
-      new_instance.lines_for_verse(5).must_equal expected_lines
+      Alouette.lines_for_verse(5).must_equal expected_lines
     end
   end
 
   describe "verse" do
     it "returns a string" do
-      # skip
-      new_instance = Alouette.new
-      new_instance.verse(4).must_be_kind_of String
+      #skip
+
+      Alouette.verse(5).must_be_kind_of String
     end
 
     it "first two lines begin with 'Je te plumerai'" do
       # skip
-      new_instance = Alouette.new
-      lines = new_instance.verse(3).split("\n")
+      lines = Alouette.verse(6).split("\n")
 
       # If there aren't at least 2 lines, don't continue
       lines.length.must_be :>, 1, "Not enough lines for this test"
@@ -58,8 +54,8 @@ describe Alouette do
     end
 
     it "last three lines are 'Alouette! Alouette! A-a-a-ah'" do
-      skip
-      lines = Alouette.verse(3).split("\n")
+      # skip
+      lines = Alouette.verse(4).split("\n")
 
       # If there aren't at least 3 lines, don't continue
       lines.length.must_be :>, 2, "Not enough lines for this test"
@@ -70,8 +66,8 @@ describe Alouette do
     end
 
     it "middle lines begin with 'Et ' and end with '!'" do
-      skip
-      lines = Alouette.verse(3).split("\n")
+      #skip
+      lines = Alouette.verse(5).split("\n")
 
       # If there aren't at least 6 lines, don't continue
       lines.length.must_be :>, 5, "Not enough lines for this test"
@@ -86,7 +82,8 @@ describe Alouette do
     end
 
     it "generates the third verse" do
-      skip
+      #skip
+
       expected_verse = <<-__END_VERSE__
       Je te plumerai les yeux.
 Je te plumerai les yeux.
@@ -101,7 +98,7 @@ Alouette!
 A-a-a-ah
       __END_VERSE__
       expected_verse.strip!
-      Alouette.verse(2).must_equal expected_verse
+      Alouette.verse(5).must_equal expected_verse
     end
   end
 
