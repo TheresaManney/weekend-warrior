@@ -18,7 +18,7 @@ describe Alouette do
     end
 
     it "generates the correct line for the first verse" do
-      skip
+      #skip
       Alouette.lines_for_verse(7).must_equal ['Et la tête!']
     end
 
@@ -43,7 +43,7 @@ describe Alouette do
 
     it "first two lines begin with 'Je te plumerai'" do
       # skip
-      lines = Alouette.verse(6).split("\n")
+      lines = Alouette.verse(5).split("\n")
 
       # If there aren't at least 2 lines, don't continue
       lines.length.must_be :>, 1, "Not enough lines for this test"
@@ -66,7 +66,7 @@ describe Alouette do
     end
 
     it "middle lines begin with 'Et ' and end with '!'" do
-      #skip
+      # skip
       lines = Alouette.verse(5).split("\n")
 
       # If there aren't at least 6 lines, don't continue
@@ -82,7 +82,7 @@ describe Alouette do
     end
 
     it "generates the third verse" do
-      #skip
+      # skip
 
       expected_verse = <<-__END_VERSE__
       Je te plumerai les yeux.
@@ -109,7 +109,7 @@ A-a-a-ah
     end
 
     it "returns a string" do
-      skip
+      #skip
       Alouette.sing.must_be_kind_of String
     end
 
